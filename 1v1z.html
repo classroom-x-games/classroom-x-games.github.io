@@ -33,7 +33,7 @@
       height: 100%;
       border-radius: 20px; /* Rounded corners */
     }
-    .rainbow-bar {
+    .game-details {
       background: linear-gradient(to right, yellow, green);
       padding: 10px 20px;
       text-align: center;
@@ -73,5 +73,14 @@
       height: 24px;
       transition: opacity 0.5s ease; /* Add transition effect for opacity */
     }
-  </style>
+</style>
 
+<div class=".game-container">
+    <iframe id="game-iframe" src="1v1.html" frameborder="0"></iframe>
+</div>
+<div class="game-details">
+    <span class="game-title">1v1 Lol</span>
+    <button class="button" onclick="toggleLike()">
+    <img class="like-image" id="like-image" src="greenlike.svg" alt="Like Button">
+    </button>
+</div>
