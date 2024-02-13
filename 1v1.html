@@ -1,11 +1,97 @@
 <style>
-    .gamecontainer {
-        position: fixed;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: black; /* Set background color to black */
     }
-</style>
+    .top-bar {
+      background-color: #1e3a8a; /* Dark blue background color */
+      padding: 10px 20px;
+      text-align: center;
+      position: fixed; /* Fixed position */
+      width: 100%; /* Full width */
+      top: 0; /* Stick to the top */
+      z-index: 1000; /* Ensure the bar stays on top of other content */
+    }
+    .top-bar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+    }
+    .game-container {
+      position: relative;
+      width: 860px;
+      height: 620px;
+      margin: 70px auto 0; /* Adjust margin to make space for the top bar */
+      overflow: hidden; /* Hide overflow content */
+      border-radius: 20px; /* Rounded corners */
+    }
+    .game-container iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px; /* Rounded corners */
+    }
+    .rainbow-bar {
+      background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+      padding: 10px 20px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 860px; /* Match the width of the iframe */
+      box-sizing: border-box;
+      border-bottom-left-radius: 20px; /* Rounded bottom-left corner */
+      border-bottom-right-radius: 20px; /* Rounded bottom-right corner */
+    }
+    .game-title {
+      font-size: 24px; /* Adjust font size as needed */
+      font-weight: bold;
+      color: white;
+      font-family: "Arial Black", sans-serif; /* Use a font with bubble letters */
+    }
+    .hide-bar-button {
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px; /* Oval outline */
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .hide-bar-button:hover {
+      background-color: white;
+      color: black;
+    }
+    .hide-bar-button-container {
+      display: none; /* Initially hidden */
+    }
+    .like-image {
+      width: 24px;
+      height: 24px;
+      transition: opacity 0.5s ease; /* Add transition effect for opacity */
+    }
+  </style>
 
 
 
 <div class=".gamecontainer">
 <iframe src="https://google-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/mind4ur/debugactions@57aba9c568b75b8aaddbcad0a05f8c26f57b344b/package/1v1old.xml" style="border: none; width: 100%; height: 100%; margin: 0px;"></iframe>
 </div>
+<div class="rainbow-bar">
+    <span class="game-title">1v1 lol</span>
+    <button class="button" onclick="toggleLike()">
+      <img class="like-image" id="like-image" src="greenlike.svg" alt="Like Button">
+    </button>
+    <button class="button" onclick="toggleFullscreen()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path fill="none" d="M0 0h24v24H0V0z"></path>
+        <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"></path>
+      </svg>
+    </button>
+    <div class="hide-bar-button-container">
+      <button class="hide-bar-button" onclick="toggleBarVisibility()">Hide this Bar</button>
+    </div>
+  </div>
