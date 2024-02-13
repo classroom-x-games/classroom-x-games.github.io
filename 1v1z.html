@@ -1,1 +1,77 @@
-<iframe src="1v1.html" width="860" height="620"></iframe>
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: black; /* Set background color to black */
+    }
+    .top-bar {
+      background-color: #1e3a8a; /* Dark blue background color */
+      padding: 10px 20px;
+      text-align: center;
+      position: fixed; /* Fixed position */
+      width: 100%; /* Full width */
+      top: 0; /* Stick to the top */
+      z-index: 1000; /* Ensure the bar stays on top of other content */
+    }
+    .top-bar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+    }
+    .game-container {
+      position: relative;
+      width: 860px;
+      height: 620px;
+      margin: 70px auto 0; /* Adjust margin to make space for the top bar */
+      overflow: hidden; /* Hide overflow content */
+      border-radius: 20px; /* Rounded corners */
+    }
+    .game-container iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px; /* Rounded corners */
+    }
+    .rainbow-bar {
+      background: linear-gradient(to right, yellow, green);
+      padding: 10px 20px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 860px; /* Match the width of the iframe */
+      box-sizing: border-box;
+      border-bottom-left-radius: 20px; /* Rounded bottom-left corner */
+      border-bottom-right-radius: 20px; /* Rounded bottom-right corner */
+    }
+    .game-title {
+      font-size: 24px; /* Adjust font size as needed */
+      font-weight: bold;
+      color: white;
+      font-family: "Arial Black", sans-serif; /* Use a font with bubble letters */
+    }
+    .hide-bar-button {
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px; /* Oval outline */
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .hide-bar-button:hover {
+      background-color: white;
+      color: black;
+    }
+    .hide-bar-button-container {
+      display: none; /* Initially hidden */
+    }
+    .like-image {
+      width: 24px;
+      height: 24px;
+      transition: opacity 0.5s ease; /* Add transition effect for opacity */
+    }
+  </style>
+
