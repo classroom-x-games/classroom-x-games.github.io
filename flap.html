@@ -439,9 +439,8 @@
         <button class="hide-bar-button" onclick="toggleBarVisibility()">Hide this Bar</button>
       </div>
     </div>
-    
     <script>
-    let isFullscreen = false; // Track fullscreen state
+      let isFullscreen = false; // Track fullscreen state
     let isBarHidden = false; // Track bar visibility state
     let isLiked = localStorage.getItem('isLiked') === 'true'; // Retrieve like state from localStorage
     
@@ -451,25 +450,16 @@
       likeImage.src = 'greenlike.svg'; // Replace with URL of green like image
     }
     
-    function toggleFullscreen() {
-      const elem = document.querySelector('.game-container');
-      if (!document.fullscreenElement) {
-        elem.requestFullscreen().then(() => {
-          document.querySelector('.hide-bar-button-container').style.display = 'block'; // Show hide button when entering fullscreen
-          isFullscreen = true; // Update fullscreen state
-          document.querySelector('.rainbow-bar').style.width = '100%';
-        }).catch(err => {
-          alert(`Error attempting to enable fullscreen mode: ${err.message}`);
-        });
-      } else {
-        document.exitFullscreen().then(() => {
-          document.querySelector('.hide-bar-button-container').style.display = 'none'; // Hide hide button when exiting fullscreen
-          isFullscreen = false; // Update fullscreen state
-          document.querySelector('.rainbow-bar').style.width = '860px'; // Reset rainbow bar width
-          if (isBarHidden) { // If bar was hidden before entering fullscreen, show it when exiting fullscreen
-            toggleBarVisibility();
-          }
-        });
+    var elem = document.querySelector(".game-container"); // Use querySelector to select by class
+    
+    /* Function to open fullscreen mode */
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
       }
     }
     
@@ -494,7 +484,7 @@
         // Handle unliking behavior if needed
       }
     }
-    </script>
+      </script>
     
     
     
