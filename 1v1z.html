@@ -441,52 +441,60 @@
   </div>
   
   <script>
-  let isFullscreen = false; // Track fullscreen state
-let isBarHidden = false; // Track bar visibility state
-let isLiked = localStorage.getItem('isLiked') === 'true'; // Retrieve like state from localStorage
-
-// Set initial like button state
-const likeImage = document.getElementById('like-image');
-if (isLiked) {
-  likeImage.src = 'greenlike.svg'; // Replace with URL of green like image
-}
-
-var elem = document.querySelector(".game-container"); // Use querySelector to select by class
-
-/* Function to open fullscreen mode */
-function openFullscreen() {
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.webkitRequestFullscreen) { /* Safari */
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { /* IE11 */
-    elem.msRequestFullscreen();
-  }
-}
-
-function toggleBarVisibility() {
-  const bar = document.querySelector('.rainbow-bar');
-  if (isFullscreen) { // Only hide the bar if in fullscreen mode
-    bar.style.opacity = isBarHidden ? '1' : '0'; // Toggle bar opacity
-    isBarHidden = !isBarHidden; // Toggle bar visibility state
-  }
-}
-
-function toggleLike() {
-  if (!isLiked) {
-    likeImage.style.opacity = '0'; // Fade out the current image
-    setTimeout(() => {
+    let isFullscreen = false; // Track fullscreen state
+    let isBarHidden = false; // Track bar visibility state
+    let isLiked = localStorage.getItem('isLiked') === 'true'; // Retrieve like state from localStorage
+    
+    // Set initial like button state
+    const likeImage = document.getElementById('like-image');
+    if (isLiked) {
       likeImage.src = 'greenlike.svg'; // Replace with URL of green like image
-      likeImage.style.opacity = '1'; // Fade in the new image
-      isLiked = true; // Update like state
-      localStorage.setItem('isLiked', 'true'); // Save like state to localStorage
-    }, 500); // Adjust the time to match the transition duration
-  } else {
-    // Handle unliking behavior if needed
-  }
-}
-  </script>
-  
+    }
+    
+    function toggleFullscreen() {
+      const elem = document.querySelector('.game-container');
+      if (!document.fullscreenElement) {
+        elem.requestFullscreen().then(() => {
+          document.querySelector('.hide-bar-button-container').style.display = 'block'; // Show hide button when entering fullscreen
+          isFullscreen = true; // Update fullscreen state
+          document.querySelector('.rainbow-bar').style.width = '100%';
+        }).catch(err => {
+          alert(`Error attempting to enable fullscreen mode: ${err.message}`);
+        });
+      } else {
+        document.exitFullscreen().then(() => {
+          document.querySelector('.hide-bar-button-container').style.display = 'none'; // Hide hide button when exiting fullscreen
+          isFullscreen = false; // Update fullscreen state
+          document.querySelector('.rainbow-bar').style.width = '860px'; // Reset rainbow bar width
+          if (isBarHidden) { // If bar was hidden before entering fullscreen, show it when exiting fullscreen
+            toggleBarVisibility();
+          }
+        });
+      }
+    }
+    
+    function toggleBarVisibility() {
+      const bar = document.querySelector('.rainbow-bar');
+      if (isFullscreen) { // Only hide the bar if in fullscreen mode
+        bar.style.opacity = isBarHidden ? '1' : '0'; // Toggle bar opacity
+        isBarHidden = !isBarHidden; // Toggle bar visibility state
+      }
+    }
+    
+    function toggleLike() {
+      if (!isLiked) {
+        likeImage.style.opacity = '0'; // Fade out the current image
+        setTimeout(() => {
+          likeImage.src = 'greenlike.svg'; // Replace with URL of green like image
+          likeImage.style.opacity = '1'; // Fade in the new image
+          isLiked = true; // Update like state
+          localStorage.setItem('isLiked', 'true'); // Save like state to localStorage
+        }, 500); // Adjust the time to match the transition duration
+      } else {
+        // Handle unliking behavior if needed
+      }
+    }
+    </script>
   
   
   <scribe-shadow id="crxjs-ext" style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; z-index: 2147483647; overflow: visible;"></scribe-shadow></body>
