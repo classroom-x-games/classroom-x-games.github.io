@@ -25,7 +25,15 @@
           height: 100%;
           border-radius: 20px; /* Rounded corners */
         }
-        .rainbow-bar {
+
+        .home-button button {
+         border-radius: 20px;
+         width: 247px;
+         height: 66px;
+         background-color: greenyellow;
+       }
+
+        .game-info {
           background: linear-gradient(to right, yellow, green);
           padding: 10px 20px;
           text-align: center;
@@ -407,11 +415,17 @@
       
       
       <body>
+        <div class="home-button">
+          <a href="index.html">
+          <button>Go Back</button>
+        </a>
+        </div>
+
         <div class="game-container">
           <iframe id="game-iframe" src="subway-surfers.html" frameborder="0"></iframe>
         </div>
         
-        <div class="rainbow-bar">
+        <div class="game-info">
           <span class="game-title">Subway Surfers</span>
           <button class="button" onclick="toggleLike()">
             <img class="like-image" id="like-image" src="greenlike.svg" alt="Like Button">
