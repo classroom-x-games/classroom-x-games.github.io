@@ -458,7 +458,7 @@
               elem.requestFullscreen().then(() => {
                 document.querySelector('.hide-bar-button-container').style.display = 'block'; // Show hide button when entering fullscreen
                 isFullscreen = true; // Update fullscreen state
-                document.querySelector('.game-infor').style.width = '100%';
+                document.querySelector('.game-info').style.width = '100%';
               }).catch(err => {
                 alert(`Error attempting to enable fullscreen mode: ${err.message}`);
               });
