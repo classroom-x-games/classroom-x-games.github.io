@@ -426,7 +426,7 @@
         </div>
         
         <div class="game-info">
-          <span class="game-title">Roblox</span>
+          <span class="game-title">A Dance Of Fire And Ice</span>
           <button class="button" onclick="toggleLike()">
             <img class="like-image" id="like-image" src="greenlike.svg" alt="Like Button">
           </button>
@@ -458,7 +458,7 @@
               elem.requestFullscreen().then(() => {
                 document.querySelector('.hide-bar-button-container').style.display = 'block'; // Show hide button when entering fullscreen
                 isFullscreen = true; // Update fullscreen state
-                document.querySelector('.rainbow-bar').style.width = '100%';
+                document.querySelector('.game-infor').style.width = '100%';
               }).catch(err => {
                 alert(`Error attempting to enable fullscreen mode: ${err.message}`);
               });
@@ -466,7 +466,7 @@
               document.exitFullscreen().then(() => {
                 document.querySelector('.hide-bar-button-container').style.display = 'none'; // Hide hide button when exiting fullscreen
                 isFullscreen = false; // Update fullscreen state
-                document.querySelector('.rainbow-bar').style.width = '860px'; // Reset rainbow bar width
+                document.querySelector('.game-info').style.width = '860px'; // Reset rainbow bar width
                 if (isBarHidden) { // If bar was hidden before entering fullscreen, show it when exiting fullscreen
                   toggleBarVisibility();
                 }
@@ -475,7 +475,7 @@
           }
           
           function toggleBarVisibility() {
-            const bar = document.querySelector('.rainbow-bar');
+            const bar = document.querySelector('.game-info');
             if (isFullscreen) { // Only hide the bar if in fullscreen mode
               bar.style.opacity = isBarHidden ? '1' : '0'; // Toggle bar opacity
               isBarHidden = !isBarHidden; // Toggle bar visibility state
