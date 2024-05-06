@@ -16,20 +16,17 @@
 }
 
   
-  .game-container {
-    position: relative;
-    width: 860px;
-    height: 620px;
-    margin: 70px auto 0; /* Adjust margin to make space for the top bar */
-    overflow: hidden; /* Hide overflow content */
-    border-radius: 20px; /* Rounded corners */
-  }
-  .game-container iframe {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px; /* Rounded corners */
-  }
-
+  .fullscreen-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 9999;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+  
   .home-button button {
     border-radius: 20px;
     width: 247px;
@@ -425,75 +422,19 @@
   </a>
   </div>
   
-  <base target="_blank"><base target="_blank"></head><body><button class="c-button">PLAY FULLSCREEN</button>
-    <style>
-    .c-button {
-      min-width: 100%;
-      font-family: inherit;
-      appearance: none;
-      border: 0;
-      border-radius: 5px;
-      background: #00d5ff;
-      color: #fff;
-      padding: 0px 46px;
-      font-size: 24px;
-      cursor: pointer;
-    }
-    
-    .c-button:hover {
-      background: #006eff;
-    }
-    
-    .c-button:focus {
-      outline: none;
-      box-shadow: 0 0 0 4px #cbd6ee;
-    }
-      
-     .c-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 80%;
-    }
-    
-    </style>
-    
+<a href="javascript:void(0);" class="fullscreen-button" onclick="openFullscreenPage()">Fullscreen</a>
+
     <script>
-            var urlObj = new window.URL(window.location.href);
-            var url = "https://classroom-x-games.github.io/minecraft.html";
-    
-            if (url) {
-                var win;
-    
-                document.querySelector('button').onclick = function() {
-                    if (win) {
-                        win.focus();
-                    } else {
-                        win = window.open();
-                        win.document.body.style.margin = '0';
-                        win.document.body.style.height = '100vh';
-                        var iframe = win.document.createElement('iframe');
-                        iframe.style.border = 'none';
-                        iframe.style.width = '100%';
-                        iframe.style.height = '100%';
-                        iframe.style.margin = '0';
-                        iframe.src = url;
-                        win.document.body.appendChild(iframe);
-                        
-    
-                        var interval = setInterval(function() {
-                            if (win.closed) {
-                                clearInterval(interval);
-                                win = undefined;
-    
-                            }
-                        }, 500);
-    
-    
-                    }
-                };
+        function openFullscreenPage() {
+            const url = 'https://www.example.com'; // URL of the page to embed
+            const newWindow = window.open('about:blank', '_blank', 'fullscreen=yes');
+            if (newWindow) {
+                newWindow.document.write('<iframe src="' + url + '" style="width: 100%; height: 100vh; border: none;"></iframe>');
+            } else {
+                alert('Popup blocked! Please enable popups for this site.');
             }
-        </script>
+        }
+    </script>
 </body><style id="stylus-4" type="text/css" class="stylus">/* i really want this to be global */
     .ytp-play-progress {
         animation:7s background linear infinite !important;
