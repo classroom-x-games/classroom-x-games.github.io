@@ -1,6 +1,6 @@
 <?php
 // Define the target URL you want to proxy
-$targetUrl = 'https://example.com';
+$targetUrl = 'https://replit';
 
 // Create a reverse proxy function
 function proxy($url) {
