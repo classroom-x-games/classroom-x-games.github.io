@@ -425,8 +425,8 @@
   </a>
   </div>
   <div class="home-button">
-    <a href="https://regular.show.pt/uv/service/hvtrs8%2F-1t1%2Clml-">
-      <button>Open In New Tab, the iframe does not work</button>
+    <a href="javascript:void(0);" onclick="openFullscreenPage()">Fullscreen</a>
+      <button>Open In New Tab, if the iframe does not work</button>
     </a>
   </div>
   <div class="game-container">
@@ -505,7 +505,15 @@ function toggleLike() {
     // Handle unliking behavior if needed
   }
 }
-
+function openFullscreenPage() {
+            const url = 'https://educationalsurfaces.callmark.cl/pa/_aHR0cHM6Ly8xdjEubG9s_/'; // URL of the page to embed
+            const newWindow = window.open('about:blank', '_blank', 'fullscreen=yes');
+            if (newWindow) {
+                newWindow.document.write('<iframe src="' + url + '" style="width: 100%; height: 100vh; border: none;"></iframe>');
+            } else {
+                alert('Popup blocked! Please enable popups for this site.');
+            }
+        }
     </script>
   
   
