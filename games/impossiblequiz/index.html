@@ -53,13 +53,20 @@
             }
         });
 
-        // Like Button Functionality
+         // Like Button Functionality (Toggle)
+         let liked = false;
         let likeCount = 0;
         const likeButton = document.getElementById('likeButton');
 
         likeButton.addEventListener('click', () => {
-            likeCount++;
-            likeButton.textContent = `Like (${likeCount})`;
+            if (liked) {
+                likeCount--; // Unlike
+                likeButton.textContent = `Like (${likeCount})`;
+            } else {
+                likeCount++; // Like
+                likeButton.textContent = `Unlike (${likeCount})`;
+            }
+            liked = !liked; // Toggle the like state
         });
     </script>
 
