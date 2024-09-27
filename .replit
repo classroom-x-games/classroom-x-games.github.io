@@ -1,0 +1,17 @@
+# Replit configuration file
+run = "python3 -m http.server 8080"
+
+# Language for syntax highlighting
+language = "html"
+
+# Default file to show in editor when first opened
+entrypoint = "index.html"
+modules = ["nodejs-20", "python-3.11"]
+
+[[ports]]
+localPort = 8000
+externalPort = 8000
+
+[[ports]]
+localPort = 8080
+externalPort = 80
