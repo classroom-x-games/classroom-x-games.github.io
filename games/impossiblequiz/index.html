@@ -8,6 +8,7 @@
         body {
           background-color: #1b1b1b;
         }
+
         iframe {
     width: 800px;
     height: 450px;
@@ -27,6 +28,10 @@
             font-size: 16px;
             cursor: pointer;
         }
+
+        .gameName {
+          color: white;
+        }
     </style>
 </head>
 <body>
@@ -35,7 +40,7 @@
 
     <div class="controls">
         <div>
-            <label for="gameFrame">The Impossible Quiz</label>
+            <label id="gameName" for="gameFrame">The Impossible Quiz</label>
         </div>
         <button class="like-button" id="likeButton">Like (0)</button>
         <button class="fullscreen-button" id="fullscreenButton">Fullscreen</button>
