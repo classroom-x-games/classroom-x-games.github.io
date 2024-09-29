@@ -113,10 +113,10 @@
         likeButton.addEventListener('click', () => {
             if (liked) {
                 likeCount--; // Unlike
-                likeButton.textContent = `Like (${likeCount})`;
+                likeButton.textContent = `👍 (${likeCount})`;
             } else {
                 likeCount++; // Like
-                likeButton.textContent = `Unlike (${likeCount})`;
+                likeButton.textContent = `👍 (${likeCount})`;
             }
             liked = !liked; // Toggle the like state
         });
