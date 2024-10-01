@@ -1,0 +1,20 @@
+<script>
+    // Detect if the page is embedded in an iframe on another domain
+    function checkFrameEmbedding() {
+        if (window.top !== window.self) {
+            // Check if it's embedded in another domain (iframe on an external page)
+            try {
+                if (window.top.location.hostname !== window.location.hostname) {
+                    // Take action here if the page is embedded in an unauthorized iframe
+                    document.body.innerHTML = "<h1>404 Error, Not Allowed</h1>";
+                }
+            } catch (e) {
+                // The attempt to access window.top.location will throw an error if it's cross-origin
+                document.body.innerHTML = "<h1>404 Error, Not Allowed</h1>";
+            }
+        }
+    }
+
+    window.onload = checkFrameEmbedding;
+</script>
+<iframe src="https://raveeditsddsss.github.io/DriftBoss/" style="width: 100%; height: 100%; border: none;"></iframe>
