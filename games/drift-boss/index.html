@@ -27,11 +27,10 @@
             padding: 15px;
             margin-top: 10px;
             text-align: center;
-            background: linear-gradient(135deg, #1c1c1c 0%, #1f1f1f 100%, #1b1b1b 100%); /* New gradient */
-            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+            background: linear-gradient(135deg, #1c1c1c 0%, #1f1f1f 100%, #1b1b1b 100%);
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
         }
 
-        /* Base button styles */
         .like-button, .fullscreen-button {
             margin: 5px;
             padding: 10px 20px;
@@ -43,34 +42,30 @@
             transition: background 0.3s ease, transform 0.2s ease;
         }
 
-        /* Gradient buttons with subtle shadow */
         .like-button {
-            background: linear-gradient(to right, #56ab2f, #a8e063); /* Green gradient */
+            background: linear-gradient(to right, #56ab2f, #a8e063);
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
         }
 
         .fullscreen-button {
-            background: linear-gradient(to right, #00c6ff, #0072ff); /* Blue gradient */
+            background: linear-gradient(to right, #00c6ff, #0072ff);
             font-size: 24px;
             padding: 12px 18px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
         }
 
-        /* Add hover effects */
         .like-button:hover, .fullscreen-button:hover {
             transform: translateY(-2px);
             box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
         }
 
-        /* Active state for click */
         .like-button:active, .fullscreen-button:active {
             transform: translateY(0px);
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
         }
 
-        /* Unicode for fullscreen icon */
         .fullscreen-button::before {
-            content: "\26F6"; /* Fullscreen icon: four corners */
+            content: "\26F6";
         }
 
     </style>
@@ -89,36 +84,36 @@
     
 
     <script>
-        // Fullscreen Button Functionality
         const fullscreenButton = document.getElementById('fullscreenButton');
         const iframe = document.getElementById('gameFrame');
 
         fullscreenButton.addEventListener('click', () => {
             if (iframe.requestFullscreen) {
                 iframe.requestFullscreen();
-            } else if (iframe.mozRequestFullScreen) { // Firefox
+            } else if (iframe.mozRequestFullScreen) {
                 iframe.mozRequestFullScreen();
-            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, Opera
+            } else if (iframe.webkitRequestFullscreen) {
                 iframe.webkitRequestFullscreen();
-            } else if (iframe.msRequestFullscreen) { // IE/Edge
+            } else if (iframe.msRequestFullscreen) {
                 iframe.msRequestFullscreen();
             }
         });
 
-        // Like Button Functionality (Toggle)
         let liked = false;
-        let likeCount = 0;
+        let likeCount = localStorage.getItem('likeCount') ? parseInt(localStorage.getItem('likeCount')) : 0;
         const likeButton = document.getElementById('likeButton');
+
+        likeButton.textContent = `👍 (${likeCount})`;
 
         likeButton.addEventListener('click', () => {
             if (liked) {
-                likeCount--; // Unlike
-                likeButton.textContent = `👍 (${likeCount})`;
+                likeCount--;
             } else {
-                likeCount++; // Like
-                likeButton.textContent = `👍 (${likeCount})`;
+                likeCount++;
             }
-            liked = !liked; // Toggle the like state
+            liked = !liked;
+            localStorage.setItem('likeCount', likeCount);
+            likeButton.textContent = `👍 (${likeCount})`;
         });
     </script>
 
