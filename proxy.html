@@ -1,0 +1,62 @@
+# Unblocked Proxy Webpage
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        #searchForm {
+            margin-bottom: 20px;
+        }
+        #urlInput {
+            width: 80%;
+            padding: 10px;
+        }
+        #submitButton {
+            padding: 10px 15px;
+        }
+        #content {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Unblocked Proxy Webpage</h1>
+    <form id="searchForm" onsubmit="return loadContent();">
+        <input type="text" id="urlInput" placeholder="Enter URL to access" required>
+        <button type="submit" id="submitButton">Go</button>
+    </form>
+
+    <div id="content"></div>
+
+    <script>
+        function loadContent() {
+            const url = document.getElementById('urlInput').value;
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = '<p>Loading...</p>';
+            fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
+                .then(response => response.json())
+                .then(data => {
+                    contentDiv.innerHTML = data.contents;
+                })
+                .catch(error => {
+                    contentDiv.innerHTML = '<p>Error loading content.</p>';
+                });
+            return false;
+        }
+    </script>
+
+</body>
+</html>
