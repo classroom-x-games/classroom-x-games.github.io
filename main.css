@@ -81,7 +81,7 @@ nav h1 {
     background-color: #fff;
     border: none;
     border-radius: 0 1vw 1vw 0;
-    color:#222222;
+    color: #222222;
     font-size: 1.5vw;
     font-weight: 600;
     padding: 0.8vw 1vw;
@@ -94,21 +94,37 @@ nav h1 {
 #games {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between; /* Space between items */
     margin-top: .6vw;
     padding-bottom: 5vw;
-
 }
- 
-#games img {    height: 15.6vw;
-    width: 15.6vw;
-    border-radius: 1vw;
+
+#games .game {
+    text-align: center;
     margin: .5vw;
+}
+
+#games .game.small {
+    flex: 0 0 30%; /* 30% width for small games */
+    height: 15.6vw; /* Adjust height as needed */
+    background-color: #333; /* Example background */
+}
+
+#games .game.large {
+    flex: 0 0 35%; /* 35% width for large games */
+    height: 20vw; /* Adjust height as needed */
+    background-color: #555; /* Example background */
+}
+
+#games img {
+    height: 100%; /* Adjust to fill parent */
+    width: 100%; /* Adjust to fill parent */
+    border-radius: 1vw;
     cursor: pointer;
     user-select: none;
     transition: transform .2s;
 }
- 
+
 #games img:hover {
     transform: scale(1.01);
 }
@@ -119,7 +135,7 @@ nav h1 {
     flex-wrap: wrap;
     justify-content: center;
     padding: 1vw;
-    margin:1%;
+    margin: 1%;
     margin-top: 6vw;
 }
 
@@ -152,7 +168,6 @@ nav h1 {
     filter: brightness(50%);
 }
 
-
 .featured .row img {
     height: 26vw;
     width: 26vw;
@@ -165,21 +180,21 @@ nav h1 {
     text-decoration: none;
 }
     
-    .featured .play-button {
+.featured .play-button {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.2s;
-    }
+}
     
-    .featured a:hover .play-button {
+.featured a:hover .play-button {
     opacity: 1;
     pointer-events: none;
-    }
+}
     
-    .featured .play-button i {
+.featured .play-button i {
     font-size: 5vw;
     text-shadow: 0 0 100px #2c7ffc;
-    }
+}
