@@ -46,23 +46,26 @@ nav h1 {
     margin-right: 1%;
 }
 
+/* Ensure images take up 30% of the row, with space for margins */
 #games {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* Space between items */
+    justify-content: space-between;
     margin-top: .6vw;
     padding-bottom: 5vw;
 }
 
+/* Each game will take up 30% of the row, allowing for 3 per line */
 #games .game {
-    flex: 0 0 30%; /* Each game item will take 30% of the row */
+    flex: 0 1 30%; /* Each game takes 30% of the row */
+    box-sizing: border-box; /* Include padding/margin in the element's total width */
     margin: .5vw;
     text-align: center;
 }
 
 #games img {
-    width: 100%; /* Make the image fill the width of the container */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%; /* Make the image fill its parent container */
+    height: auto;
     border-radius: 1vw;
     cursor: pointer;
     user-select: none;
@@ -152,72 +155,27 @@ nav h1 {
         <h1>ZACH'S UNBL*CKED GXMES</h1>
     </nav>
 
-    <div class="featured">
-        <div class="column">
-          <a href="games/bob-the-robber-2/">
-            <img src="images/bob-the-robber-2.png">
-            <div class="play-button">
-                <i class="fa-solid fa-play"></i>
-            </div>
-          </a>
-          <a href="games/vex7/">
-            <img src="images/vex7.jpeg">
-            <div class="play-button">
-                <i class="fa-solid fa-play"></i>
-            </div>
-          </a>
-        </div>
-        <div class="row">
-          <a href="games/vex6">
-            <img src="images/vex6.jpeg">
-            <div class="play-button">
-                <i class="fa-solid fa-play"></i>
-            </div>
-          </a>
-        </div>
-        <div class="row">
-          <a href="games/drive-mad/">
-            <img src="images/drive-mad.jpg">
-            <div class="play-button">
-                <i class="fa-solid fa-play"></i>
-            </div>
+    <div id="games">
+        <div class="game">
+            <a href="games/bob-the-robber-2/">
+                <img src="images/bob-the-robber-2.png" alt="Bob the Robber 2">
             </a>
         </div>
-        <div class="column">
-          <a href="games/moto-x3m/">
-            <img src="images/moto-x3m.jpg">
-            <div class="play-button">
-                <i class="fa-solid fa-play"></i>
-            </div>
-          </a>
-          <a href="games/retro-bowl/">
-            <img src="images/retro-bowl.jpg">
-            <div class="play-button">
-                <i class="fa-solid fa-play"></i>
-            </div>
-          </a>
-            <a href="games/a-dance-of-fire-and-ice/">
-                <img src="images/a-dance-of-fire-and-ice.png">
-                <div class="play-button">
-                    <i class="fa-solid fa-play"></i>
-                </div>
-              </a>
-            <a href="games/geometry">
-                <img src="images/Geometry.PNG">
-                <div class="play-button">
-                    <i class="fa-solid fa-play"></i>
-                </div>
-              </a>
-              <a href="games/drift-boss">
-                <img src="images/drift-boss.png">
-                <div class="play-button">
-                    <i class="fa-solid fa-play"></i>
-                </div>
-              </a>
+        <div class="game">
+            <a href="games/vex7/">
+                <img src="images/vex7.jpeg" alt="Vex 7">
+            </a>
         </div>
+        <div class="game">
+            <a href="games/vex6/">
+                <img src="images/vex6.jpeg" alt="Vex 6">
+            </a>
+        </div>
+        <div class="game">
+            <a href="games/drive-mad/">
+                <img src="images/drive-mad.jpg" alt="Drive Mad">
+            </a>
         </div>
     </div>
 </body>
 </html>
-
-<script src="script.js"></script>
