@@ -9,10 +9,12 @@
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
 
+
 body {
     background-color: #1b1b1b;
     font-family: 'Bubblegum Sans', sans-serif;
 }
+
 
 nav {
     position: fixed;
@@ -30,6 +32,7 @@ nav {
     margin: auto;
 }
 
+
 nav img {
     height: 80%;
     width: auto;
@@ -40,41 +43,44 @@ nav img {
     box-shadow: 5px 5px 10px rgba(53, 53, 53, 0.459);
 }
 
+
 nav h1 {
     font-size: 4vw;
     font-weight: 800;
     margin-right: 1%;
 }
 
-/* Ensure images take up 30% of the row, with space for margins */
+
 #games {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-between; /* Space between items */
     margin-top: .6vw;
     padding-bottom: 5vw;
 }
 
-/* Each game will take up 30% of the row, allowing for 3 per line */
+
 #games .game {
-    flex: 0 1 30%; /* Each game takes 30% of the row */
-    box-sizing: border-box; /* Include padding/margin in the element's total width */
+    flex: 0 0 30%; /* Each game item will take 30% of the row */
     margin: .5vw;
     text-align: center;
 }
 
+
 #games img {
-    width: 100%; /* Make the image fill its parent container */
-    height: auto;
+    width: 100%; /* Make the image fill the width of the container */
+    height: auto; /* Maintain aspect ratio */
     border-radius: 1vw;
     cursor: pointer;
     user-select: none;
     transition: transform .2s;
 }
 
+
 #games img:hover {
     transform: scale(1.01);
 }
+
 
 .featured {
     display: flex;
@@ -86,6 +92,7 @@ nav h1 {
     margin-top: 6vw;
 }
 
+
 .featured h1 {
     font-size: 3.5vw;
     font-weight: 700;
@@ -95,10 +102,12 @@ nav h1 {
     color: #fff;
 }
 
+
 .featured .column {
     display: flex;
     flex-direction: column;
 }
+
 
 .featured img {
     height: 12.5vw;
@@ -110,15 +119,18 @@ nav h1 {
     transition: all .2s;
 }
 
+
 .featured img:hover {
     transform: scale(1.02);
     filter: brightness(50%);
 }
 
+
 .featured .row img {
     height: 26vw;
     width: 26vw;
 }
+
 
 .featured a {
     display: inline-block;
@@ -126,7 +138,7 @@ nav h1 {
     color: #2c7ffc;
     text-decoration: none;
 }
-    
+   
 .featured .play-button {
     position: absolute;
     top: 50%;
@@ -135,16 +147,17 @@ nav h1 {
     opacity: 0;
     transition: opacity 0.2s;
 }
-    
+   
 .featured a:hover .play-button {
     opacity: 1;
     pointer-events: none;
 }
-    
+   
 .featured .play-button i {
     font-size: 5vw;
     text-shadow: 0 0 100px #2c7ffc;
 }
+
 
     </style>
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css">
@@ -155,27 +168,77 @@ nav h1 {
         <h1>ZACH'S UNBL*CKED GXMES</h1>
     </nav>
 
-    <div id="games">
-        <div class="game">
-            <a href="games/bob-the-robber-2/">
-                <img src="images/bob-the-robber-2.png" alt="Bob the Robber 2">
+
+    <div class="featured">
+        <div class="column">
+          <a href="games/bob-the-robber-2/">
+            <img src="images/bob-the-robber-2.png">
+            <div class="play-button">
+                <i class="fa-solid fa-play"></i>
+            </div>
+          </a>
+          <a href="games/vex7/">
+            <img src="images/vex7.jpeg">
+            <div class="play-button">
+                <i class="fa-solid fa-play"></i>
+            </div>
+          </a>
+        </div>
+        <div class="row">
+          <a href="games/vex6">
+            <img src="images/vex6.jpeg">
+            <div class="play-button">
+                <i class="fa-solid fa-play"></i>
+            </div>
+          </a>
+        </div>
+        <div class="row">
+          <a href="games/drive-mad/">
+            <img src="images/drive-mad.jpg">
+            <div class="play-button">
+                <i class="fa-solid fa-play"></i>
+            </div>
             </a>
         </div>
-        <div class="game">
-            <a href="games/vex7/">
-                <img src="images/vex7.jpeg" alt="Vex 7">
-            </a>
+        <div class="column">
+          <a href="games/moto-x3m/">
+            <img src="images/moto-x3m.jpg">
+            <div class="play-button">
+                <i class="fa-solid fa-play"></i>
+            </div>
+          </a>
+          <a href="games/retro-bowl/">
+            <img src="images/retro-bowl.jpg">
+            <div class="play-button">
+                <i class="fa-solid fa-play"></i>
+            </div>
+          </a>
+            <a href="games/a-dance-of-fire-and-ice/">
+                <img src="images/a-dance-of-fire-and-ice.png">
+                <div class="play-button">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+              </a>
+            <a href="games/geometry">
+                <img src="images/Geometry.PNG">
+                <div class="play-button">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+              </a>
+              <a href="games/drift-boss">
+                <img src="images/drift-boss.png">
+                <div class="play-button">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+              </a>
         </div>
-        <div class="game">
-            <a href="games/vex6/">
-                <img src="images/vex6.jpeg" alt="Vex 6">
-            </a>
-        </div>
-        <div class="game">
-            <a href="games/drive-mad/">
-                <img src="images/drive-mad.jpg" alt="Drive Mad">
-            </a>
         </div>
     </div>
 </body>
 </html>
+
+
+<script src="script.js"></script>
+
+
+
