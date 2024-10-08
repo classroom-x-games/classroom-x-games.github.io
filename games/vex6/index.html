@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <!-- Favicon Link -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <style>
+        body {
+            background-color: #1b1b1b;
+            font-family: Arial, sans-serif;
+        }
+
+        iframe {
+            width: 800px;
+            height: 450px;
+            border: 2px solid #000;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .controls {
+            border-radius: 10px; 
+            padding: 15px;
+            margin-top: 10px;
+            text-align: center;
+            background: linear-gradient(135deg, #1c1c1c 0%, #1f1f1f 100%, #1b1b1b 100%);
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .like-button, .fullscreen-button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            border: none;
+            color: white;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .like-button {
+            background: linear-gradient(to right, #56ab2f, #a8e063);
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .fullscreen-button {
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            font-size: 24px;
+            padding: 12px 18px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .like-button:hover, .fullscreen-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .like-button:active, .fullscreen-button:active {
+            transform: translateY(0px);
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .fullscreen-button::before {
+            content: "\26F6";
+        }
+
+    </style>
+</head>
+<body>
+
+    <iframe id="gameFrame" src="./game.html" title="Game" allowfullscreen></iframe>
+
+    <div class="controls">
+        <div>
+            <label id="gameName" for="gameFrame" style="color: white; font-size: 30px;">Vex 6</label>
+        </div>
+        <button class="like-button" id="likeButton" style="border-radius: 10px; padding: 10px 15px;">👍 (0)</button>
+        <button class="fullscreen-button" id="fullscreenButton" style="border-radius: 10px; padding: 10px 15px;">Fullscreen</button>
+    </div>
+    
+
+    <script>
+        const fullscreenButton = document.getElementById('fullscreenButton');
+        const iframe = document.getElementById('gameFrame');
+
+        fullscreenButton.addEventListener('click', () => {
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) {
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) {
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) {
+                iframe.msRequestFullscreen();
+            }
+        });
+
+        let liked = false;
+        let likeCount = localStorage.getItem('likeCount') ? parseInt(localStorage.getItem('likeCount')) : 0;
+        const likeButton = document.getElementById('likeButton');
+
+        likeButton.textContent = `👍 (${likeCount})`;
+
+        likeButton.addEventListener('click', () => {
+            if (liked) {
+                likeCount--;
+            } else {
+                likeCount++;
+            }
+            liked = !liked;
+            localStorage.setItem('likeCount', likeCount);
+            likeButton.textContent = `👍 (${likeCount})`;
+        });
+    </script>
+
+</body>
+</html>
