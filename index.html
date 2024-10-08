@@ -55,17 +55,17 @@ nav h1 {
     padding-bottom: 5vw;
 }
 
-/* Each game will take up 30% of the row, allowing for 3 per line */
+/* Adjust the game image size to around 20% of the width */
 #games .game {
-    flex: 0 1 calc(30% - 1vw); /* Adjusted width with margin */
-    box-sizing: border-box; /* Include padding/margin in the element's total width */
+    flex: 0 1 calc(20% - 1vw); /* Adjusted width to 20% with margin */
+    box-sizing: border-box;
     margin: .5vw;
     text-align: center;
-    position: relative; /* Needed for absolute positioning of play button */
+    position: relative;
 }
 
 #games img {
-    width: 100%;
+    width: 100%; /* Ensure the image fills the parent container */
     height: auto;
     border-radius: 1vw;
     cursor: pointer;
@@ -85,6 +85,7 @@ nav h1 {
 #games .game:hover .play-button {
     opacity: 1;
 }
+
 
 .featured {
     display: flex;
@@ -110,9 +111,10 @@ nav h1 {
     flex-direction: column;
 }
 
+/* For the column layout, reduce the image size proportionally */
 .featured img {
-    height: 12.5vw;
-    width: 12.5vw;
+    height: 10vw;
+    width: 10vw; /* Reduced size */
     border-radius: 1vw;
     margin: .5vw;
     cursor: pointer;
@@ -126,8 +128,8 @@ nav h1 {
 }
 
 .featured .row img {
-    height: 26vw;
-    width: 26vw;
+    height: 20vw;
+    width: 20vw; /* Adjusted larger image size */
 }
 
 .featured a {
