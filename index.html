@@ -83,12 +83,21 @@ nav h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
+    background-color: rgba(44, 127, 252, 0.8); /* Blue background with opacity 0.8 */
+    padding: 1.5vw; /* Padding to make the button background bigger */
+    border-radius: 50%; /* Round button */
     transition: opacity 0.2s;
+}
+
+#games .play-button i {
+    font-size: 4vw; /* Increase play icon size */
+    color: red; /* Red play icon for contrast */
 }
 
 #games .game:hover .play-button {
     opacity: 1;
 }
+
 
 .featured {
     display: flex;
