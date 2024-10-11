@@ -98,7 +98,7 @@ nav h1 {
     opacity: 1;
 }
 
-
+/* Featured section styles */
 .featured {
     display: flex;
     flex-direction: row;
@@ -168,6 +168,35 @@ nav h1 {
 .featured .play-button i {
     font-size: 5vw;
     text-shadow: 0 0 100px #2c7ffc;
+}
+
+/* Floating plus button styles */
+.floating-plus {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #2c7ffc;
+    border-radius: 50%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for plus button */
+.floating-plus:hover {
+    background-color: #1a5edc;
+    transform: scale(1.1);
+}
+
+.floating-plus i {
+    display: block;
+    margin: auto;
 }
 
     </style>
@@ -268,6 +297,13 @@ nav h1 {
                     </div>
                 </a>
                 </div>
+
+
     </div>
+
+    <!-- Floating plus button that redirects to suggest.html -->
+    <a href="suggest.html" class="floating-plus">
+        <i>+</i>
+    </a>
 </body>
 </html>
