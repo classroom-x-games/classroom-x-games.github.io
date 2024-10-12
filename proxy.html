@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   <title>Home</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
@@ -17,7 +18,7 @@
     }
     h1 {
       font-size: 2em;
-      margin-bottom: -3px;
+      margin-bottom: 20px;
     }
     .search-container {
       display: flex;
@@ -31,9 +32,10 @@
     .search-container input {
       border: none;
       width: 100%;
-      padding: 0px;
+      padding: 10px;
       outline: none;
       border-radius: 25px;
+      font-size: 16px;
     }
     .search-container button {
       border: none;
@@ -42,22 +44,32 @@
     }
     .links {
       margin-top: 20px;
-      margin-left: 80px;
+      text-align: center;
     }
     .links a {
-      margin-right: 80px;
+      margin-right: 20px;
+      text-decoration: none;
+      color: blue;
+      font-size: 1.1em;
+    }
+    .links a:hover {
+      text-decoration: underline;
+    }
+    #quote {
+      margin-bottom: 20px;
+      font-style: italic;
     }
   </style>
 </head>
 <body>
   <h1>Rave Unblocker</h1>
-  <div id="haha"></div>
+  <div id="quote"></div>
 
   <div class="search-container">
-    <input type="text" placeholder="Enter URL and hit the icon on the right..." maxlength="50">
-    <div class="search-icon">
-      <i class="fas fa-search" onclick="getSite()"></i>
-    </div>
+    <input type="text" id="urlInput" placeholder="Enter URL and hit the icon on the right..." maxlength="50">
+    <button onclick="redirectToSite()">
+      <i class="fas fa-search"></i>
+    </button>
   </div>
 
   <div class="links">
@@ -67,47 +79,49 @@
   </div>
 
   <script>
-    var haha = document.getElementById("haha");
+    // Random quotes
+    var quotes = [
+      'Super cool site that displays sites!',
+      'Bypassing web filters since a long time ago.',
+      'TitaniumNetwork sucks, cry about it.',
+      'Do your homework.',
+      'Too slow? Host it yourself.',
+      'The voices in my head told me to finish this site.',
+      'Breaking every bone in your body since 1979.',
+      'If you see ads on this site, this idiot is making money off my stuff.',
+      'how do i type',
+      'What do I even put here?',
+      'yoooooooooooooooooooo!',
+      'tProxy for dummies: Type in a URL below to access it.',
+      'Dear Teachers, This is TOTALLY a learning resource.',
+      'I got in trouble for this once.',
+      'Always check for privacy policies in school extensions.',
+      'Cookie Clicker is useless, stop playing it.',
+      'How did this blow up again?',
+      'Submit an issue on GitHub if something broke.',
+      'Do people use this anymore?',
+      '*cricket noises*'
+    ];
 
-    function lmao(){
-      var lol = [
-        'Super cool site that displays sites!',
-        'Bypassing web filters since a long time ago.',
-        'TitaniumNetwork sucks, cry about it.',
-        'Do your homework.',
-        'Too slow? Host it yourself instead of complaining non-stop about your issues.',
-        'The voices in my head told me to finish this site.',
-        'Breaking every bone in your body since 1979.',
-        'If you see ads on this site, this idiot is making money off my stuff.',
-        'how do i type',
-        'What do I even put here?',
-        'yoooooooooooooooooooo!',
-        'tProxy for dummies: Type in a URL below to access it.',
-        'Dear Teachers, This is TOTALLY a learning resource.',
-        'I got in trouble for this once.',
-        'Always check if a school chrome extension has a privacy policy, If not then you can punch your school administrators multiple times.',
-        'Cookie Clicker is useless, stop playing it.',
-        'How did this blow up again?',
-        'Submit an issue on GitHub if something broke in tProxy. (If a website being used via tProxy breaks, not our problem)',
-        'Do people use this anymore?',
-        '*cricket noises*'
-      ];
-
-      var hehe = Math.floor(Math.random() * lol.length);
-      haha.textContent = lol[hehe];
+    // Display random quote on page load
+    function displayRandomQuote() {
+      var randomIndex = Math.floor(Math.random() * quotes.length);
+      document.getElementById('quote').textContent = quotes[randomIndex];
     }
 
-    lmao();
+    // Call the function on page load
+    displayRandomQuote();
 
-    function getSite() {
-      let inputValue = document.querySelector('input').value;
+    // Redirect to encoded URL
+    function redirectToSite() {
+      let inputValue = document.getElementById('urlInput').value;
 
       if (!inputValue.startsWith('http://') && !inputValue.startsWith('https://')) {
         inputValue = 'http://' + inputValue;
       }
 
       const encodedValue = btoa(inputValue);
-      window.location.href = "/web/_" + encodedValue + '_/';
+      window.location.href = 'https://classroom-x-games.github.io/proxy/' + encodedValue;
     }
   </script>
 </body>
