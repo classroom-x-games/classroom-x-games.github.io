@@ -2,330 +2,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <title>Home</title>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
-
-body {
-    background-color: #1b1b1b;
-    font-family: 'Bubblegum Sans', sans-serif;
-}
-
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    backdrop-filter: blur(10px) saturate(200%) brightness(70%);
-    color: #fff;
-    display: flex;
-    height: 5vw; /* Reduce height */
-    width: 100%;
-    align-items: center;
-    justify-content: left;
-    padding: 0 1%;
-    z-index: 5;
-    margin: auto;
-}
-
-nav img {
-    height: 60%; /* Reduce logo height */
-    width: auto;
-    margin-right: 1%;
-    border-radius: 1vw;
-    cursor: pointer;
-    user-select: none;
-    box-shadow: 5px 5px 10px rgba(53, 53, 53, 0.459);
-}
-
-nav h1 {
-    font-size: 2.5vw; /* Reduce font size */
-    font-weight: 800;
-    margin-right: 1%;
-}
-
-
-/* Adjust to display 4 games per row, and stack the rows on top of each other */
-#games {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next row */
-    justify-content: space-around; /* Add space between items */
-    margin-top: 1vw;
-    padding-bottom: 5vw;
-}
-
-/* Each game will take up roughly 22% of the width (to fit 4 in a row with margins) */
-#games .game {
-    flex: 0 1 calc(22% - 1vw); /* Make each game take 22% of the width, minus some margin */
-    margin: 0.5vw; /* Add margin for spacing between games */
-    text-align: center;
-    position: relative;
-}
-
-#games img {
-    width: 100%; /* Image fills its parent container */
-    height: auto;
-    border-radius: 1vw;
-    cursor: pointer;
-    user-select: none;
-    transition: transform .2s;
-}
-
-#games img:hover {
-    transform: scale(1.02); /* Slightly enlarge on hover */
-}
-
-#games .play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    background-color: rgba(44, 127, 252, 0.8); /* Blue background with opacity 0.8 */
-    padding: 1.5vw; /* Padding to make the button background bigger */
-    border-radius: 50%; /* Round button */
-    transition: opacity 0.2s;
-}
-
-#games .play-button i {
-    font-size: 4vw; /* Increase play icon size */
-    color: red; /* Red play icon for color opposites */
-}
-
-#games .game:hover .play-button {
-    opacity: 1;
-}
-
-/* Featured section styles */
-.featured {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 1vw;
-    margin: 1%;
-    margin-top: 6vw;
-}
-
-.featured h1 {
-    font-size: 3.5vw;
-    font-weight: 700;
-    margin: 1vw 1vw .4vw 1vw;
-    width: 83.8%;
-    text-align: left;
-    color: #fff;
-}
-
-.featured .column {
-    display: flex;
-    flex-direction: column;
-}
-
-/* For the column layout, reduce the image size proportionally */
-.featured img {
-    height: 10vw;
-    width: 10vw; /* Reduced size */
-    border-radius: 1vw;
-    margin: .5vw;
-    cursor: pointer;
-    user-select: none;
-    transition: all .2s;
-}
-
-.featured img:hover {
-    transform: scale(1.02);
-    filter: brightness(50%);
-}
-
-.featured .row img {
-    height: 20vw;
-    width: 20vw; /* Adjusted larger image size */
-}
-
-.featured a {
-    display: inline-block;
-    position: relative;
-    color: #2c7ffc;
-    text-decoration: none;
-}
-    
-.featured .play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.2s;
-}
-    
-.featured a:hover .play-button {
-    opacity: 1;
-    pointer-events: none;
-}
-    
-.featured .play-button i {
-    font-size: 5vw;
-    text-shadow: 0 0 100px #2c7ffc;
-}
-
-/* Floating plus button styles */
-.floating-plus {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background-color: #2c7ffc;
-    border-radius: 50%;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    color: white;
-    font-size: 40px;
-    text-align: center;
-    line-height: 60px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-/* Hover effect for plus button */
-.floating-plus:hover {
-    background-color: #1a5edc;
-    transform: scale(1.1);
-}
-
-.floating-plus i {
-    display: block;
-    margin: auto;
-}
-
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .login-container {
+            width: 300px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .login-btn:hover {
+            background-color: #0056b3;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+        }
     </style>
-    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css">
 </head>
 <body>
-    <nav>
-        <img src="/images/favicon.ico" alt="logo">
-        <h1>CLASSROOM X GAMES</h1>
-    </nav>
 
-    <div id="games">
-        <div class="game">
-            <a href="games/bob-the-robber-2/">
-                <img src="images/bob-the-robber-2.png" alt="Bob the Robber 2">
-                <div class="play-button">
-                    <i class="fa-solid fa-play"></i>
-                </div>
-            </a>
-        </div>
-        <div class="game">
-            <a href="games/vex7/">
-                <img src="images/vex7.jpeg" alt="Vex 7">
-                <div class="play-button">
-                    <i class="fa-solid fa-play"></i>
-                </div>
-            </a>
-        </div>
-        <div class="game">
-            <a href="games/vex6/">
-                <img src="images/vex6.jpeg" alt="Vex 6">
-                <div class="play-button">
-                    <i class="fa-solid fa-play"></i>
-                </div>
-            </a>
-        </div>
-        <div class="game">
-            <a href="games/drive-mad/">
-                <img src="images/drive-mad.jpg" alt="Drive Mad">
-                <div class="play-button">
-                    <i class="fa-solid fa-play"></i>
-                </div>
-            </a>
-        </div>
-        <div class="game">
-            <a href="games/moto-x3m/">
-                <img src="images/moto-x3m.jpg" alt="Moto X3M">
-                <div class="play-button">
-                    <i class="fa-solid fa-play"></i>
-                </div>
-            </a>
-        </div>
-            <div class="game">
-            <a href="games/retro-bowl/">
-                <img src="images/retro-bowl.jpg" alt="Retro Bowl">
-                <div class="play-button">
-                    <i class="fa-solid fa-play"></i>
-                </div>
-            </a>
-        </div>
-        <div class="game">
-            <a href="games/a-dance-of-fire-and-ice/">
-                <img src="images/a-dance-of-fire-and-ice.png" alt="A Dance of Fire and Ice">
-                <div class="play-button">
-                    <i class="fa-solid fa-play"></i>
-                </div>
-            </a>
-         </div>
-         <div class="game">
-            <a href="games/geometry">
-                <img src="images/Geometry.PNG" alt="Geometry">
-                <div class="play-button">
-                    <i class="fa-solid fa-play"></i>
-                </div>
-            </a>
-        </div>
-            <div class="game">
-            <a href="games/drift-boss">
-                <img src="images/drift-boss.png" alt="Drift Boss">
-                <div class="play-button">
-                    <i class="fa-solid fa-play"></i>
-                </div>
-            </a>
-          </div>
-          <div class="game">
-            <a href="games/basketball-stars">
-                <img src="images/basketballstars-min.jpeg" alt="Drift Boss">
-                <div class="play-button">
-                    <i class="fa-solid fa-play"></i>
-                </div>
-            </a>
-            </div>
-            <div class="game">
-                <a href="games/fnaf">
-                    <img src="images/fnaf-min.jpg" alt="Drift Boss">
-                    <div class="play-button">
-                        <i class="fa-solid fa-play"></i>
-                    </div>
-                </a>
-                </div>
-                <div class="game">
-                <a href="games/tunnel-rush2">
-                    <img src="https://thepizzaedition.github.io/images/games/tunnelrush2-min.png" alt="Drift Boss">
-                    <div class="play-button">
-                        <i class="fa-solid fa-play"></i>
-                    </div>
-                </a>
-             </div>
-             <div class="game">
-                <a href="games/cluster-rush">
-                    <img src="https://thepizzaedition.github.io/images/games/cluster-min.png" alt="Drift Boss">
-                    <div class="play-button">
-                        <i class="fa-solid fa-play"></i>
-                    </div>
-                </a>
-             </div>
-             <div class="game">
-                <a href="games/fnf">
-                    <img src="https://i.pinimg.com/originals/ac/0d/25/ac0d255cb0d4008daeeb20a523f6ec04.gif"
-                    <div class="play-button">
-                        <i class="fa-solid fa-play"></i>
-                    </div>
-                </a>
-             </div>
-    </div>
+<div class="login-container">
+    <h2>Login</h2>
+    <input type="text" id="username" class="input-field" placeholder="Username" required>
+    <input type="password" id="password" class="input-field" placeholder="Password" required>
+    <button class="login-btn" onclick="login()">Login</button>
+    <p id="error-message" class="error-message"></p>
+</div>
 
-    <!-- Floating plus button that redirects to suggest.html -->
-    <a href="./suggest" class="floating-plus">
-        <i>+</i>
-    </a>
+<script>
+    // Define the single username and password
+    const USERNAME = "admin";
+    const PASSWORD = "password123";
+
+    function login() {
+        const enteredUsername = document.getElementById("username").value;
+        const enteredPassword = document.getElementById("password").value;
+        const errorMessage = document.getElementById("error-message");
+
+        // Check credentials
+        if (enteredUsername === USERNAME && enteredPassword === PASSWORD) {
+            alert("Login successful! Welcome to the dashboard.");
+            // Here you can redirect to a dashboard or another page
+            window.location.href = "dashboard.html";  // Replace with your actual dashboard URL
+        } else {
+            errorMessage.textContent = "Invalid credentials, please try again.";
+        }
+    }
+</script>
+
 </body>
 </html>
