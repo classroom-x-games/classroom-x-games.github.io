@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <title>Home</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"> <title>Home</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -60,22 +59,28 @@
 </div>
 
 <script>
-    // Define the single username and password
-    const USERNAME = "games";
-    const PASSWORD = "noteachersareallowed";
+    // Define multiple usernames and passwords
+    const users = [
+        { username: "admin", password: "admin123" },
+        { username: "user1", password: "password1" },
+        { username: "user2", password: "password2" },
+        { username: "guest", password: "guestpass" }
+    ];
 
     function login() {
         const enteredUsername = document.getElementById("username").value;
         const enteredPassword = document.getElementById("password").value;
         const errorMessage = document.getElementById("error-message");
 
-        // Check credentials
-        if (enteredUsername === USERNAME && enteredPassword === PASSWORD) {
-            alert("Login successful! Welcome to the dashboard.");
-            // Here you can redirect to a dashboard or another page
+        // Check if the entered credentials match any user in the list
+        const user = users.find(u => u.username === enteredUsername && u.password === enteredPassword);
+
+        if (user) {
+            alert(`Login successful! Welcome, ${user.username}!`);
+            // Redirect to a dashboard or another page
             window.location.href = "dashboard.html";  // Replace with your actual dashboard URL
         } else {
-            errorMessage.textContent = "Invalid credentials, please try again.";
+            errorMessage.textContent = "Invalid username or password, please try again.";
         }
     }
 </script>
